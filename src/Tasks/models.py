@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Boolean, Integer, Text, String
+from sqlalchemy import Column, Boolean, Integer, Text, String, ForeignKey
 from src.utils.db import Base
 
 class TaskModel(Base):
@@ -9,6 +9,10 @@ class TaskModel(Base):
     description = Column(String)
     status = Column(String, default="Pending")
     priority = Column(String, default="Medium")
+
+    user_id = Column(Integer, ForeignKey("user_table.id", ondelete="CASCADE"))
+
+    
 
 
 
