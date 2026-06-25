@@ -39,11 +39,9 @@ async def register_service(
         user_data.username,
         db
     )
-    print(f"Username: {username_user.username}")
-    print(username_user.__dict__)
-
-
     if username_user:
+        print(f"Username: {username_user.username}")
+        print(username_user.__dict__)
         raise HTTPException(
             status_code=400,
             detail="Username already exist..."
