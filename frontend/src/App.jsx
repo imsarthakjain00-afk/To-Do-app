@@ -70,7 +70,7 @@ function App() {
         username,
         email,
         password,
-        mobile_number: mobileNumber,
+        mobile_number: parseInt(mobileNumber, 10) || 0,
       });
       setSuccess('Registration successful! Please login.');
       setAuthMode('login');
