@@ -75,11 +75,15 @@ async def register_service(
         db
     )
 
-    await send_email(
-        [new_user.email]
-    )
+    try:
+        await send_email(
+            [new_user.email]
+        )
+    except Exception as e:
+        print(f"Email sending failed: {e}")
 
     return new_user
+
 
 
 def login_user_service(
