@@ -39,11 +39,17 @@ function App() {
     try {
       const userData = await authAPI.getCurrentUser();
       setUser(userData);
-      const tasksData = await taskAPI.getAll();
-      setTasks(tasksData);
       setError('');
+      
+      try {
+        const tasksData = await taskAPI.getAll();
+        setTasks(tasksData);
+      } catch (taskErr) {
+        console.error("Failed to load tasks:", taskErr);
+        setError("Could not load tasks, but you are logged in.");
+      }
     } catch (err) {
-      console.error(err);
+      console.error("Auth verification failed:", err);
       handleLogout();
     }
   };
