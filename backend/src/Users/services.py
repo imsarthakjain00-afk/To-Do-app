@@ -2,7 +2,7 @@ from fastapi import HTTPException, status, Request
 from sqlalchemy.orm import Session
 from pwdlib import PasswordHash
 import jwt
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from jwt.exceptions import InvalidTokenError
 from src.Users.models import UserModel
 from src.Users.dtos import UserSchema, LoginSchema
@@ -111,7 +111,7 @@ def login_user_service(
             detail="Invalid Credentials..."
         )
 
-    exp_time = datetime.now() + timedelta(
+    exp_time = datetime.now(timezone.utc) + timedelta(
         minutes=settings.EXP_TIME
     )
 
