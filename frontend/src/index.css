@@ -5,14 +5,17 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: dark;
-  color: #f3f4f6;
-  background-color: #0d0e12;
+  color-scheme: light;
+  color: #1F2937;
+  background-color: #F5F1E8;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --background: #F5F1E8;
+  --surface: #FFFFFF;
+  --primary: #525E85;
+  --primary-hover: #404B6B;
+  --text: #1F2937;
+  --muted-text: #6B7280;
+  --border: #E5E7EB;
 }
 
 body {
@@ -20,8 +23,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: radial-gradient(circle at 50% 50%, #1e1e30 0%, #0d0e12 100%);
-  background-attachment: fixed;
+  background-color: var(--background);
 }
 
 * {
@@ -36,7 +38,7 @@ button {
   outline: none;
   background: none;
   font-family: inherit;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 input, textarea {
